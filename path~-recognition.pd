@@ -1,0 +1,111 @@
+#N canvas 366 116 863 528 10;
+#X obj 15 96 dsp;
+#X floatatom 15 118 5 0 0 0 - - -, f 5;
+#X msg 134 118 analyze baritono.aif;
+#X obj 134 367 dac~ 1 2;
+#X obj 389 157 readsf~;
+#X obj 152 141 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X msg 398 135 start;
+#X obj 389 93 t b b;
+#X obj 389 71 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X text 410 71 start loop;
+#X msg 14 166 mute \$1;
+#X obj 14 142 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X msg 14 206 nosound \$1;
+#X obj 14 185 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X obj 346 281 *~;
+#X obj 364 240 hsl 128 15 0 1 0 0 empty empty empty -2 -8 0 10 -262144
+-1 -1 0 1;
+#X msg 13 248 norandom \$1;
+#X obj 13 226 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X msg 389 114 open baritono.aif;
+#X msg 441 136 stop;
+#X obj 252 359 unpack f f f f;
+#X floatatom 222 381 5 0 0 0 - - -, f 5;
+#X floatatom 311 333 5 0 0 0 - - -, f 5;
+#X floatatom 266 332 5 0 0 0 - - -, f 5;
+#X obj 277 127 metro;
+#X obj 277 87 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X obj 169 6 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X obj 278 36 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X text 195 7 start;
+#X text 297 38 stop;
+#X obj 178 488 textfile;
+#X obj 278 58 t b b b;
+#X msg 178 422 add \$1;
+#X floatatom 249 398 5 0 0 0 - - -, f 5;
+#X floatatom 276 415 5 0 0 0 - - -, f 5;
+#X floatatom 303 432 5 0 0 0 - - -, f 5;
+#X obj 361 260 line~;
+#X obj 570 51 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 1
+1;
+#X msg 570 73 \; pd dsp \$1;
+#X obj 134 343 *~;
+#X msg 183 443 clear;
+#X obj 169 28 t b b b b b;
+#X obj 184 53 del 6;
+#X msg 187 465 write exp8.txt;
+#X obj 134 306 path~ 8 500 64 -out 1 -virtual 64;
+#X msg 283 105 tempo 64 samp;
+#X msg 517 188 hopsize 1;
+#X msg 419 308 latency;
+#X connect 0 0 1 0;
+#X connect 2 0 44 0;
+#X connect 4 0 14 0;
+#X connect 4 0 44 0;
+#X connect 4 1 27 0;
+#X connect 5 0 44 0;
+#X connect 6 0 4 0;
+#X connect 7 0 6 0;
+#X connect 7 1 18 0;
+#X connect 8 0 7 0;
+#X connect 10 0 44 0;
+#X connect 11 0 10 0;
+#X connect 12 0 44 0;
+#X connect 13 0 12 0;
+#X connect 14 0 3 1;
+#X connect 15 0 36 0;
+#X connect 16 0 44 0;
+#X connect 17 0 16 0;
+#X connect 18 0 4 0;
+#X connect 19 0 4 0;
+#X connect 20 0 21 0;
+#X connect 20 1 33 0;
+#X connect 20 2 34 0;
+#X connect 20 3 35 0;
+#X connect 24 0 44 0;
+#X connect 25 0 24 0;
+#X connect 26 0 41 0;
+#X connect 27 0 31 0;
+#X connect 31 0 19 0;
+#X connect 31 1 25 0;
+#X connect 31 2 43 0;
+#X connect 32 0 30 0;
+#X connect 36 0 14 1;
+#X connect 36 0 39 1;
+#X connect 37 0 38 0;
+#X connect 39 0 3 0;
+#X connect 40 0 30 0;
+#X connect 41 0 8 0;
+#X connect 41 1 42 0;
+#X connect 41 2 45 0;
+#X connect 41 3 46 0;
+#X connect 41 4 40 0;
+#X connect 42 0 25 0;
+#X connect 43 0 30 0;
+#X connect 44 0 39 0;
+#X connect 44 1 32 0;
+#X connect 44 3 23 0;
+#X connect 44 4 22 0;
+#X connect 45 0 24 0;
+#X connect 45 0 42 0;
+#X connect 46 0 44 0;
+#X connect 47 0 44 0;

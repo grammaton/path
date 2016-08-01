@@ -1,0 +1,43 @@
+preset @ intro ;
+threshold = 0.;
+window = 512;
+concatenate = 1;
+amp = 1;
+hopsize = 100;
+weight = 1;
+envelope = 0;
+# questo e’ un commento ;
+endpre 
+
+preset @ sec1 ;
+window = 2048 ;
+hopsize = 250 500;
+concatenate = 2;
+# envelope = 2 ;
+endpre 
+
+preset @ sec2 ;
+threshold = 0.25;
+concatenate = 3;
+amp = 0.2 0.4;
+hopsize = 100;
+envelope = 2;
+# questo e’ un commento ;
+endpre 
+
+preset @ final ;
+window = 2048 ;
+hopsize = 250 500;
+# envelope = 2 ;
+endpre 
+
+# token possibili:
+# window : int potenza di due
+# threshold: float (0,1)
+# concatenate: int>0
+# amp: float>0, un valore = all, due = random (), tre lista
+# hopsize: int>0, un valore = all, due random (), tre lista
+# weight: float (0,1) lista
+# envelope: int, 0 hann, 1 hamm, 2 blackman, 3 cosine, 4 rectangular (constant envelope)
+
+# metti sempre in fondo ; in endpre non c’e’ bisogno
