@@ -1,0 +1,96 @@
+----------------------- REVIEW 1 ---------------------
+PAPER: 106
+TITLE: Real-Time Sound Similarity Reconstruction by Features Extraction Analysis
+AUTHORS: Marco Matteo Markidis and José Miguel Fernández
+
+OVERALL EVALUATION: -1 (weak reject)
+REVIEWER'S CONFIDENCE: 4 (high)
+Originality: 2 (mostly not original)
+Significance of the contribution to the field: 2 (low significance)
+Research quality / Artistic quality: 3 (reasonable)
+Writing quality / Technical quality: 2 (poor)
+Contribution to the conference program and to the conference themes: 3 (fair match)
+
+----------- Review -----------
+The paper presents [path~], a PureData external implementing a corpus-based, concatenative analysis-resynthesis engine. Sound is acquired and resynthesised by a similarity match between audio grains, using a set of audio features extracted offline for sound corpora and in real-time for live input.
+
+Although the application might be of interest for practical use in the PureData environment, the paper presents little scientific innovation from a research point of view. Moreover, concepts are sometimes explained in a confusing way and the paper is written in poor English. In particular, plural nouns are often written as singular, many articles are missing, false friends are used with their wrong meaning (contest -> context, research -> search, founded -> found, CPU consume -> CPU time, thought to be -> designed to be, to name a few). As a final, minor remark, footnote n. 9 comes immediately after a number and looks like an exponent, which is quite puzzling at a first glance.
+
+For all those reasons, I don't think this paper would make for a valid contribution to CIM 2016 and therefore I would argue to reject it.
+
+
+----------------------- REVIEW 2 ---------------------
+PAPER: 106
+TITLE: Real-Time Sound Similarity Reconstruction by Features Extraction Analysis
+AUTHORS: Marco Matteo Markidis and José Miguel Fernández
+
+OVERALL EVALUATION: 2 (accept)
+REVIEWER'S CONFIDENCE: 4 (high)
+Originality: 4 (original subject/approach)
+Significance of the contribution to the field: 4 (high significance)
+Research quality / Artistic quality: 3 (reasonable)
+Writing quality / Technical quality: 2 (poor)
+Contribution to the conference program and to the conference themes: 4 (good match)
+
+----------- Review -----------
+The paper presents a new pd external, called path~, that incorporates feature extraction and real-time matching with a corpus of grains, for concatenative sound synthesis. The work is interesting and worth presenting to the community. The oral presentation may be organized as an extended demo. A very simple example of search and matching would help understanding what the system actually does.
+The main problem of the paper is that it is hard to read and it contains several grammatical and formal flaws. I encourage the authors to go through the article and do their best to improve its readability.
+Some observations:
+. at least the city should be added to the institution in the authors field
+. put a space before each [citation]
+. "The basic idea of sound similarity reconstruction is to do ... to set this criterion as a minimum distance", which criterion? The sentence is obscure.
+. "is thought optimized" -> "is optimized"
+. "especially the add method breaks": what is the add method?
+. "the general interest focused its attention" is strange
+. "data structure[s] were used"
+. "this set of high level descriptors has an higher matching": descriptors have a matching? What does it mean?
+. "decrease the ratio between the analysis' time and the score" makes little sense.
+. "In addition the collection of single-descriptor external...", ill-formed sentence.
+. "the user doesn't complain with the creation and the passage of an external table": why should the user complain?
+. "the database is sorted in a binary tree": sorted according to what key?
+. please replace "research" with "search" everywhere.
+. "founded" -> "found"
+. "the rate of matching with respect to the time analysis" translates as "il tasso di accoppiamento rispetto all'analisi del tempo", pretty hard to understand...
+. "the test consists in perform[ing] ... and directly analyz<e>[ing] ..."
+. "one the worst scenario" ?
+
+
+----------------------- REVIEW 3 ---------------------
+PAPER: 106
+TITLE: Real-Time Sound Similarity Reconstruction by Features Extraction Analysis
+AUTHORS: Marco Matteo Markidis and José Miguel Fernández
+
+OVERALL EVALUATION: -1 (weak reject)
+REVIEWER'S CONFIDENCE: 4 (high)
+Originality: 2 (mostly not original)
+Significance of the contribution to the field: 2 (low significance)
+Research quality / Artistic quality: 2 (minor flaws)
+Writing quality / Technical quality: 2 (poor)
+Contribution to the conference program and to the conference themes: 3 (fair match)
+
+----------- Review -----------
+This paper details the architecture and implementation of a PureData external for a real-time resynthesis environment.
+
+The concept and methodology followed is mostly non original, as similar and much more advanced tools have been around for a long time and even the authors admit that the novelty factor resides mostly in having an implementation for PureData instead than other musical computing frameworks such as Max/MSP.
+
+In general, the writing shows that this is probably one of the first real-time implementations done by the author, as many points regarded as innovative in the paper are widely known best-practices in the community. As an example, the whole description of "ahead-of-time operations" is somehow trivial because there is no other way to implement such an algorithm. No real-time audio programmer would ever think of doing database lookups in the real-time thread, and the obvious solution is then to use a separate lower priority thread with a lock-free message communication to avoid priority inversion.
+
+The paper could have some value if it was more focused on the artistic aspects like those described in Section 4.2. However, in order to make this an appealing tool for other composers, a good interface for controlling both the offline analysis and real-time parameters shoudl be provided and, frankly, from the GUI shown in Fig. 6 it seems that the tool is way behind from an usability perspective than its competitors on other platforms.
+
+Notes on the text:
+
+par. 1.1 : why is this put here just after the introduction? It is purely a technical implementation detail and here it breaks the flow of presentation. Moreover, the paragraph makes a lot of references to terms not explained in the text ("add method", "one-blocksize latency world", etc.).
+
+par. 3.1: there are many unclear parts of the algorithm that will need further explanation:
+ - what time-domain features are extracted and is there any envelope / transient detection phase? I could only find reference to a "root mean square amplitude" descriptor
+ - what is the relationship between the "high-level descriptors" and the "low level features"? As far as I could understand from the text, the low-level features are basically the FFT data bins.
+
+Figure 1 and through the text: "research" is a poor naming choice, much better to use "lookup" or "search"
+
+Par. 3.2:  path~ architecture is based on WHAT we have called Pds.
+Again, Pds is definitely a poor naming choice for this structure. As far as I understand, there is no PureData-specific information inside it, e.g. the same algorithm could work in another context.
+
+Sec. 3 in general: please add some details to the specific implementation of the database. Precisely what data structures are used? Which third-party library if any have you take advantage of?
+
+par. 4.1.1 : here latency is used in a very unconventional way, as usually we speak about latency measures in a deterministic, real-time context. Here the term basically means "average time for a database lookup on the author's computer", which honestly is not something that I would measure and put in a detailed table. These results could vary *highly* from one machine to another and, given the number and the context, it would just be better to say something like "on the author's machine database lookups took on average less than 2ms even on a database size of 10k x 40, which is well below the threshold for interactive response of control signals like these". I'm guessing that for such a purpose 5ms could still be a reasonable time, but it would be good to have a note indicating what is a good latency limit for this task.
+Also, the way these numbers are obtained is questionable. It would be much better to run the algorithm outside PureData environment and measure the time on *many* more iterations and look also for worst-case time instead than averaging.
