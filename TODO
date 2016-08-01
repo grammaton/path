@@ -1,7 +1,23 @@
-Con Jose' si e' discusso di introdurre alcune nuove funzionalita'. La prima e' quella di avere una fragmentazione onset-based. Attualmente path~ fragmenta il file audio su cui esegue l'analisi ogni 1024 (valore di default) campioni, mentre l'idea sarebbe di avere una fragmentazione che lasci intatto l'evento sonoro.
-La seconda e' quella di aggiungere alcuni descrittori. Quelli di cui abbiamo discusso sono i seguenti: 
+Jose':
+1) fragmentazione onset-based. 
+Attualmente path~ fragmenta il file audio su cui esegue l'analisi ogni 1024 (valore di default) campioni, mentre l'idea sarebbe di avere una fragmentazione che lasci intatto l'evento sonoro.
+2) aggiungere alcuni descrittori. 
+Quelli di cui abbiamo discusso sono i seguenti: 
 NoiseEnergy
 Inharmonicity
 noisiness
 SpectralVariation
 SpectralDeviation
+
+Giuseppe:
+
+Daniele:
+
+Marco:
+-) sistemare il codice attualmente presente, con particolare riferimento ai problemi di data race presenti e tutta la parte multi thread
+-) sostituire supporto fft mayer con GSL (thread safe)
+-) implementare coda lock free
+-) aggiungere funzionalità alla GUI
+-) aggiungere supporto thread pool per la gestione della matrice di adiacenza e creazione dell'albero
+-) capire come integrare analisi cluster e riduzione di dimensionalità dei descrittori
+-) capire se ci sono descrittori più indicati per la musica contemporanea
