@@ -1,0 +1,3 @@
+a) Idea: L'idea e' quella di avere una fragmentazione del file audio da analizzare non fatta per frame (ossia ogni 1024 campioni ad esempio) ma per onset, in maniera da avere un file diviso per segmenti meaningful. 
+b) Problemi: creare un onset detection e dividere per regioni meaningful. Le regioni andranno paddate perche' non saranno potenze di due.
+c) Design: | analyze -o audio.wav < puo' essere una soluzione? il metodo hopsize diventa meaningless?
