@@ -1,0 +1,7 @@
+Con Jose' si e' discusso di introdurre alcune nuove funzionalita'. La prima e' quella di avere una fragmentazione onset-based. Attualmente path~ fragmenta il file audio su cui esegue l'analisi ogni 1024 (valore di default) campioni, mentre l'idea sarebbe di avere una fragmentazione che lasci intatto l'evento sonoro.
+La seconda e' quella di aggiungere alcuni descrittori. Quelli di cui abbiamo discusso sono i seguenti: 
+NoiseEnergy
+Inharmonicity
+noisiness
+SpectralVariation
+SpectralDeviation
