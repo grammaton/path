@@ -1,0 +1,5 @@
+#N canvas 642 247 632 549 10;
+#X obj 210 501 dac~ 1 2 3 4;
+#X text 240 518 S.T.ONE;
+#X obj 306 501 dac~ 5;
+#X text 294 518 WindBack;
